@@ -11,7 +11,6 @@ public class Main extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
-
     if (req.getRequestURI().endsWith("/db")) {
       showDatabase(req,resp);
     } else {
@@ -22,6 +21,7 @@ public class Main extends HttpServlet {
   private void showHome(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
     resp.getWriter().print("Hello from Java!");
+    resp.getWriter().print(System.getenv("DATABASE_URL"));
   }
 
   private void showDatabase(HttpServletRequest req, HttpServletResponse resp)
